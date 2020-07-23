@@ -16,6 +16,8 @@ runs:
   args: 
     - ${{ inputs.image_name }}
     - ${{ inputs.image_tag }}
+    - ${{ inputs.docker_dir }}
+    - ${{ inputs.docker_target }}
 
 branding:
   icon: 'upload-cloud'  
