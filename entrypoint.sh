@@ -22,6 +22,8 @@ fi
 
 DOCKER_IMAGE_NAME="$1"
 DOCKER_IMAGE_TAG="$2"
+DOCKER_DIR="$3"
+DOCKER_TARGET="$4"
 
 USERNAME=${GITHUB_REPOSITORY%%/*}
 REPOSITORY=${GITHUB_REPOSITORY#*/}
@@ -46,7 +48,7 @@ fi
 
 
 # Build Docker Image Locally with provided Image Name
-sh -c "docker build -t $IMAGE_NAME ." ## pass in the build command from user input, otherwise build in default mode
+sh -c "docker build $DOCKER_DIR -t $IMAGE_NAME --target $DOCKER_TARGET" ## pass in the build command from user input, otherwise build in default mode
 
 # If Docker name name space is pecified add to registry
 if [ -n "$GCLOUD_AUTH" ]
